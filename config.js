@@ -21,6 +21,10 @@ const pluginsConfig = {
     membersLimit: 100,
     trigger: "all",
   },
+  patrticipantsUpdate: {
+    prefixTask: "!task",
+    prefixUpdate: "!updates",
+  },
 };
 
 module.exports = { botConfig, pluginsConfig };

@@ -8,7 +8,7 @@ const P = require("pino");
 class Bot {
   #socket;
   #messageStore = {};
-  #emptyChar = "‎ ";
+  #emptyChar = "‎";
   #authFolder;
   #selfReply;
   #saveCredentials;
@@ -17,14 +17,14 @@ class Bot {
 
   constructor(plugins = [], config = {}) {
     this.#plugins = plugins;
-
-    this.#authFolder = config.authFolder || "auth";
+    this.#authFolder = config.authFolder || 'auth';
     this.#selfReply = config.selfReply || false;
     this.#logMessages = config.logMessages || true;
   }
 
   async connect() {
-    const { state, saveCreds } = await useMultiFileAuthState(this.#authFolder);
+    // const { state, saveCreds } = await useMultiFileAuthState(this.#authFolder);
+    const { state, saveCreds } = await useMultiFileAuthState('/home/node/app/auth');
 
     this.#saveCredentials = saveCreds;
 

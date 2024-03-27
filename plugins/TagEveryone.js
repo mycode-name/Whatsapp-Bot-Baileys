@@ -30,7 +30,7 @@ class TagEveryone {
 
       members.forEach(({ id, admin }) => {
         mentions.push(id);
-        items.push("@" + id.slice(0, 12) + (admin ? " 👑 " : ""));
+        items.push("@" + id.slice(0, 12) + (admin ? " ✨ " : ""));
       });
 
       if (members.length < this.#membersLimit)

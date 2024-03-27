@@ -170,11 +170,12 @@ class Roles {
 
     let roles;
     try {
-      const rolesData = await fs.readFile(this.#dataFile);
+      const rolesData = await fs.readFile('/home/node/app/plugins/roles.json', { encoding: 'utf8' });
       roles = JSON.parse(rolesData);
     } catch {
       roles = [];
     }
+
 
     for (let role in roles) {
       if (!text.includes(`@${role}`)) continue;
@@ -203,6 +204,7 @@ class Roles {
       this.#rolesHelp(key, message);
     } else if (items[0] === "list") {
       this.#listRoles(key, message, roles);
+      // console.log(roles);
     } else if (items[0] === "create") {
       this.#createRoles(key, message, roles, items.slice(1));
     } else if (items[0] === "delete") {
@@ -225,7 +227,7 @@ class Roles {
       );
     }
 
-    await fs.writeFile(this.#dataFile, JSON.stringify(roles));
+    fs.writeFile('/home/node/app/plugins/roles.json', JSON.stringify(roles));
   }
 }
 
